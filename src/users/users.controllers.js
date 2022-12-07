@@ -21,7 +21,7 @@ const createUser = async(obj) => {
         id: uuid.v4(),
         first_name: obj.first_name,
         last_name: obj.last_name,
-        username: obj.username,
+        user_name: obj.user_name,
         email: obj.email,
         password: hashPassword(obj.password),
         age: obj.age,
@@ -30,8 +30,18 @@ const createUser = async(obj) => {
     return data
 }
 
+const findUserByEmail = async(email) => {
+    const data = await Users.findOne({
+        where: {
+            email: email
+        }
+    })
+    return data
+}
+
 module.exports = {
     findAllUsers,
     findUserById,
-    createUser
+    createUser, 
+    findUserByEmail
 }
