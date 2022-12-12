@@ -8,6 +8,7 @@ const { DataTypes } = require('sequelize')
 
 const db = require('../utils/database')
 const Categories = require('../models/categories.models')
+const Users = require('../models/users.models')
 
 const Posts = db.define('post', {
     id: {
@@ -22,9 +23,14 @@ const Posts = db.define('post', {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    // userId: {
-
-    // },
+    userId: {
+        type: DataTypes.UUID,
+        allowNull: false, 
+        references: {
+            key: 'id', 
+            model: Users
+        }
+    },
     coverUrl: {
         type: DataTypes.STRING
     },
@@ -40,3 +46,4 @@ const Posts = db.define('post', {
 
 
 module.exports = Posts
+
