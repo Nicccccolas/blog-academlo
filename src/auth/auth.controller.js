@@ -15,7 +15,8 @@ const checkUserCredential = async (email, password) => {
     }
 }
 
-
-checkUserCredential('nicolas@gmail.com', '123466')
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
+module.exports = checkUserCredential
+//? Prueba
+// checkUserCredential('nicolas@gmail.com', '123466')
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err))
